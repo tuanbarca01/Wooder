@@ -1,0 +1,137 @@
+header{
+	width: 100%;
+	height: 80px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	.container-fluid{
+	position: relative;
+	  height: 100%;
+	  align-items: center;
+	  display: flex;
+	  justify-content: space-between;
+	  
+	.menu{
+		height: 100%;
+		left: 50%;
+		position: absolute;
+		transform: translateX(-50%);
+		ul{
+			display: flex;
+			height: 100%;
+			li{
+				height: 100%;
+				a{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					height: 100%;
+					margin: 0 18px;
+					position: relative;
+					font-size: 16px;
+					overflow: hidden;
+					@include transition($t);
+					color: white;
+					&:after {
+						content: "";
+						width: 100%;
+						height: 1px;
+						background: #fff;
+						position: absolute;
+						left: 0;
+						bottom: 25px;
+						transform: scale(0);
+						transform-origin: left center;
+						transition: 0.5s;
+						
+					}
+					&:hover {
+						color: #bea67c;
+						&:after {
+							background: #bea67c;
+							transform: scale(1);
+							transform-origin: right center;
+							transition: 0.5s;
+						}
+					}
+				}
+			}
+		}
+	}
+	.lang{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		span{
+			color: white;
+			font-size: 16px;
+		}
+		.lang__current{
+			display: inline-flex;
+			cursor: pointer;
+			.option{
+				display: flex;
+				i{
+					@include midflex;
+					margin-left: 3px;
+					margin-right: 12px;
+					img{
+						width: 12px;
+					}
+				}
+			}
+		}
+		.btnmenu{
+			display: none;
+			position: relative;
+			width: 40px;
+			height: 20px;
+			z-index: 300;
+			cursor: pointer;
+			span{
+				width: 100%;
+				height: 2px;
+				background-color:  #bea67c;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				transition: 0.3s;
+			}
+			&::before,&::after {
+				content: '';
+				width: 100%;
+				height: 2px;
+				display: block;
+				background-color:  #bea67c;
+				@include transform(rotate(0deg) translateY(0px));
+				@include transition(0.3s);
+				
+			}
+			&:after {
+				position: absolute;
+				bottom: 0;
+			}
+		}
+	  }
+	  
+	}
+  }
+  @include mobile{
+	header{
+	    --heightheader: 50px;
+	    height: var(--heightheader);
+	    .container-fluid{
+	
+		.menu{
+		    display: none;
+		}
+		.lang{
+			.btnmenu{
+				display: block;
+			}
+		}
+	    }
+	}
+	
+    }

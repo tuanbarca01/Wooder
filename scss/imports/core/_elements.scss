@@ -1,0 +1,55 @@
+a {
+    color: $text-cl;
+    text-decoration: none;
+    display: block;
+}
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+}
+strong {
+    font-family: bb;
+}
+
+.-lv1 {
+    @include text(100px, b, 100px, $white-cl, none);
+    font-weight: normal;
+    margin: 0;
+    a {
+        @include text(100px, g, 100px, $white-cl, none);
+    }
+    @include tablet {
+    }
+    @include mobile {
+    }
+}
+
+.button{
+
+}
+
+.arrow{
+    
+}
+
+.btnmore{
+    display: inline-flex;
+    letter-spacing: 2px;
+    position: relative;
+    font-family: 'PRGB';
+    img{
+        margin-left: 10px;
+        margin-top: 7px;
+    }
+    &:before{
+        content: "";
+        width: 35px;
+        height: 2px;
+        background:#740f3b;
+        display: block;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+    }
+}
